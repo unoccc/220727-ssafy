@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstring>
+#include <string>
+using namespace std;
+
+int main() {
+	string str = "ABC[3512]DEFG[211]DSFSD[36346]";
+
+	int sum = 0;
+
+	int l = 0, r =0;
+	while (1) {
+		int left = str.find('[', l);
+		int right = str.find(']', r);
+		if (left == -1 || right == -1) break;
+
+		string num = str.substr(left + 1, (right - left - 1));
+		sum += stoi(num);
+
+		l = left + 1;
+		r = right + 1;
+	}
+
+
+	cout << sum;
+
+
+	return 0;
+}

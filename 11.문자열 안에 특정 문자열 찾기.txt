@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int cnt;
+
+void findGold(string str) {
+	int t = 0;
+	while (1) {
+		int ret = str.find("GOLD", t);
+		if (ret == -1) break;
+
+		cnt++;
+
+		t = ret + 1;
+	}
+}
+
+
+int main() {
+	string str[4] = {
+		"GOLD#GOLD##",
+		"#GOL#GOLE#GOLED",
+		"GOLD",
+		"GGGGOLD#GOLD"
+	};
+
+	for (int i = 0; i < 4; i++) {
+		findGold(str[i]);
+	}
+
+	cout << cnt;
+
+	return 0;
+}

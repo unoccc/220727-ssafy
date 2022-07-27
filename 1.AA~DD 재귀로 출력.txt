@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+char path[10];
+
+void go(int lev) {
+	if (lev == 2) {
+		cout << path << endl;
+		return;
+	}
+	for (int i = 0; i < 4; i++) {
+		path[lev] = 'A' + i;
+		go(lev + 1);
+		path[lev] = 'A';
+	}
+}
+int main() {
+	
+	go(0);
+
+	return 0;
+
+}

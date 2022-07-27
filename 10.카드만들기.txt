@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string arr[6] = { "BT", "KF", "CCC", "MOM", "SK", "MC" };
+string path[100];
+int cnt;
+
+void go(int lev, string sum) {
+	if (lev == 3) {
+		if (sum == "BTSKMC") cnt++;
+		return;
+	}
+
+	for (int i = 0; i < 6; i++) {
+		go(lev + 1, sum+arr[i]);
+	}
+}
+
+int main() {
+
+	go(0, "");
+
+	if (cnt > 0) cout << "O";
+	else cout << "X";
+
+	return 0;
+}
